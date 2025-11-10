@@ -8,6 +8,7 @@ import visitorRoutes from "./routes/visitor.routes";
 import dashboardRoutes from "./routes/dashboard.routes";
 import userRoutes from "./routes/user.routes";
 import notificationRoutes from "./routes/notification.routes";
+import { errorHandler, notFound } from "./middleware/error.middleware";
 
 const app = express();
 
@@ -39,11 +40,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/notifications", notificationRoutes);
 
 app.use(notFound);
-app.use(errorHandler);
-
-// routes
-app.use("/api/auth", authRoutes);
-
 app.use(errorHandler);
 
 export default app;
